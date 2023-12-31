@@ -1,5 +1,20 @@
 import { Fragment } from "react";
 import { useState } from "react";
+
+// styling method 1: Vanilla CSS
+import styles from "./ListGroup.module.css";
+
+// styling method 2: CSS in JS
+import styled from 'styled-components';
+
+interface ListItemProps {
+    active: boolean;
+}
+const ListItem = styled.li<ListItemProps>`
+    padding: 5px 0;
+    background: ${(props: { active: any; }) => props.active ? 'lightblue' : 'none'}`
+
+
  // props:
  // immutable; use this so the component is reusable
 interface ListGroupProps {
@@ -25,18 +40,19 @@ function ListGroup({items, heading,onSelectItem}: ListGroupProps) {
             <h1>{heading}</h1>
             {/* when items list has no item, call getMessage function to return no item found*/}
             {getMessage()}
-            <ul className="list-group">
+            <ul className={[styles.listGroup, styles.container].join(' ')}>
                 {/* for loop is unavailable in tsx; use map (~ foreach) to render list instead: */}
                 {/* key is equivalent to id in html */}
                 {items.map((item, index) => 
-                    <li className={selectedIndex === index ? "list-group-item active" : "list-group-item"} 
+                    <ListItem
+                        active = {index === selectedIndex}
                         key={item} 
                         onClick={() => {
                             setSelectedIndex(index);
                             onSelectItem(item);
                             }}>
                     {item}
-                    </li>)}
+                    </ListItem>)}
             </ul>
 
         </>

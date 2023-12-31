@@ -1,7 +1,8 @@
 import ListGroup from "./components/ListGroup";
 import Alert from "./components/Alert";
-import Button from "./components/Button";
+import Button from "./components/Button/";
 import { useState } from 'react';
+import Love from "./components/Love";
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
     setAlertVisibility(!alertVisible);
   }
 
+
   return (
   <>
     {/* The children props allows adding a children (h4  tag) of "Hello World" */}
@@ -35,7 +37,10 @@ function App() {
     {/* alertVisible is toggled whenever the button is clicked --> alertVisible then is passed into the alert */}
     <Alert visible={alertVisible}>
       <h4>Hello World!</h4>
-    </Alert> 
+    </Alert>
+
+    {/* Try adding an icon from the react icon library */}
+    <Love onLoveClick={() => {console.log("Love icon is clicked")}}></Love>
   </>)
     
 }

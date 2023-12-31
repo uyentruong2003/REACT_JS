@@ -1,0 +1,9 @@
+.listGroup {
+    list-style: none;
+    padding: 0;
+}
+
+.container {
+    font-family: 'Lucida Sans';
+    width: 200px;
+}
