@@ -35,7 +35,7 @@ function ListGroup({items, heading,onSelectItem}: ListGroupProps) {
     // none of the choice selected --> selectedIndex = -1
 
     return (
-        // <> is Fragment tag 
+        // <> is Fragment tag
         <>
             <h1>{heading}</h1>
             {/* when items list has no item, call getMessage function to return no item found*/}

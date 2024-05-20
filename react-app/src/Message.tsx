@@ -7,6 +7,8 @@ function Message() {
     return <h1>Hello World</h1>;
 }
 
-// testing
 
 export default Message;
+
+// babeljs.io/repl website
+// convert from html to js code

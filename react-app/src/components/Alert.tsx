@@ -2,7 +2,8 @@
 import React, { ReactNode } from 'react'
 
 interface AlertProps {
-    // pass a child (html content) into the component
+    // pass a child (html content) into the component --> children : ReactNode
+    // pass a child as a text into the component --> children : string
     children: ReactNode;
     visible: boolean;
 
