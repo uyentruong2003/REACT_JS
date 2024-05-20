@@ -1,0 +1,19 @@
+Source code: https://github.com/mosh-hamedani/react-course-part1.git
+Q&A Forum: https://forum.codewithmosh.com/
+Guiding path for software developers: https://codewithmosh.com/p/learning-paths
+
+npm create vite@latest -- create dev environment
+npm install -- install all 3rd-party libraries
+npm run dev -- run vite dev environment
+Shortcut to create a react arrow function w/ export: rafce
+Multi-cursor editing: Ctrl+D
+
+
+Props: pass args into the component
+State (Hook): toggle the value of a variable that is used to manage the component
+
+Passing children: declare a props with children property, type ReactNode
+
+index.ts file is created in a comoponent folder to allow more convenience reference to the folder
+
+CSS modules (e.g., ListGroup.module.css): allow CSS scope locally. You can use the same name for different CSS classes without the worry of name clashing
