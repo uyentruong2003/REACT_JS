@@ -1,8 +1,10 @@
 import ListGroup from "./components/ListGroup";
 import Alert from "./components/Alert";
 import Button from "./components/Button/";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Love from "./components/Love";
+import NavBar from "./components/NavBar";
+import Cart from "./components/Cart";
 
 
 function App() {
@@ -26,6 +28,33 @@ function App() {
     setAlertVisibility(!alertVisible);
   }
 
+  // state hook with arrays
+  const [myArr, setMyArr] = useState(['A','B','C']);
+
+  const addToArr = async () => {
+    setMyArr([...myArr,'new item']);
+    console.log(myArr);
+  }
+
+  const removeFromArr = async () => {
+    setMyArr(myArr.filter(item => item !== "new item"));
+    console.log(myArr);
+  }
+
+  const updateArr = async () => {
+    setMyArr(myArr.map(item => item === "new item" ? "D":item));
+    console.log(myArr);
+  }
+
+  useEffect(() => {
+    console.log(myArr);
+  }, [myArr]); // This useEffect will run every time myArr changes
+
+  
+  // State hook between different components:
+  const [cartItems, setCartItems] = useState(['Product 1', 'Product 2', 'Product 3']);
+
+
 
   return (
   <>
@@ -41,9 +70,24 @@ function App() {
 
     {/* Try adding an icon from the react icon library */}
     <Love onLoveClick={() => {console.log("Love icon is clicked")}}></Love>
+    <div>
+      {/* Buttons to modify a state hook with arrays */}
+      <Button color="primary" onClick={addToArr}>Add To Array</Button>
+      <span>  </span>
+      <Button color="primary" onClick={removeFromArr}>Remove Array</Button>
+      <span>  </span>
+      <Button color="primary" onClick={updateArr}>Update Array</Button>
+    </div>
+    {/* Print out the list */}
+      <Alert visible>{myArr.map(item => item+", ")}</Alert>
+    
+    {/* State Hook between different components */}
+    <NavBar cartItemCount={cartItems.length}></NavBar>
+    <Cart items={cartItems} onClear={()=> setCartItems([])}></Cart>
+
+
   </>)
     
 }
-
 // must export the element
 export default App;
